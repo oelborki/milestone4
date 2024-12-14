@@ -228,10 +228,9 @@ def train_model(n_clicks, target_var, selected_features, uploaded_data):
                                    ('regressor', GradientBoostingRegressor(random_state=42))])
 
         param_grid = {
-            'regressor__n_estimators': [50, 100, 200],
-            'regressor__max_depth': [3, 5, 10],
-            'regressor__learning_rate': [0.01, 0.05, 0.1],
-            'regressor__subsample': [0.6, 0.8, 1.0],
+            'regressor__n_estimators': [50, 100],
+            'regressor__max_depth': [3, 5],
+            'regressor__learning_rate': [0.01, 0.05, 0.1]
         }
 
         grid_search = GridSearchCV(
