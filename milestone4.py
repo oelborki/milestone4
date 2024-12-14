@@ -11,7 +11,6 @@ import dash
 import pandas as pd
 import io
 import base64
-import os
 
 app = dash.Dash(__name__, suppress_callback_exceptions=True)
 # global variables
@@ -283,5 +282,4 @@ def make_prediction(n_clicks, input_values, target_var, model_data):
 
 
 server = app.server
-port = int(os.environ.get("PORT", 8050))  # Use PORT if available, default to 8050
-app.run_server(debug=False, port=port, host="0.0.0.0")
+app.run_server(debug=False, port=8051)
