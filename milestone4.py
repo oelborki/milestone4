@@ -282,4 +282,5 @@ def make_prediction(n_clicks, input_values, target_var, model_data):
 
 
 server = app.server
-app.run_server(debug=False, port=8051)
+if __name__ == '__main__':
+    app.run_server(debug=True, port=8051)
