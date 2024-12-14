@@ -21,8 +21,8 @@ categorical_columns = []
 
 # app layout
 app.layout = html.Div([
-    dcc.Store(id='uploaded-data-store'),  # Store for uploaded data
-    dcc.Store(id='trained-model-store'),  # Store for trained model and metadata
+    dcc.Store(id='uploaded-data-store'),
+    dcc.Store(id='trained-model-store'), 
     dcc.Upload(
         id='upload-data',
         children=html.Button('Upload File'),
@@ -89,7 +89,6 @@ app.layout = html.Div([
         html.Div(id='prediction-output', style={'marginTop': '10px'})
     ], style={'width': '50%', 'margin': '20px auto', 'textAlign': 'center'})
 ])
-
 
 # data preprocessing
 def preprocess_data(df):
@@ -191,7 +190,6 @@ def update_correlation_chart(target_var, uploaded_data):
         'layout': {'title': f'Correlation with {target_var}'}
     }
 
-
 @callback(
     Output('r2-score-display', 'children'),
     Output('trained-model-store', 'data'),
@@ -253,7 +251,6 @@ def train_model(n_clicks, target_var, selected_features, uploaded_data):
 
     return "Please select your features.", None
 
-
 @callback(
     Output('prediction-output', 'children'),
     Input('predict-button', 'n_clicks'),
@@ -279,8 +276,7 @@ def make_prediction(n_clicks, input_values, target_var, model_data):
         return f"Predicted {target_var}: {prediction[0]:.2f}"
 
     return "Please enter values to make a prediction."
-
-
+    
 server = app.server
 if __name__ == '__main__':
     app.run_server(debug=True, port=8051)
